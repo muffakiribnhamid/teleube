@@ -34,10 +34,13 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Load environment variables
+load_dotenv()
+
 # Constants
-BOT_TOKEN = "7556965289:AAGOvcJqJbkBeX6g1Sto-IlvLx4hKWctFyo"
-ADMIN_USER_ID = 5250315855
-MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB Telegram limit
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+ADMIN_USER_ID = int(os.getenv('ADMIN_USER_ID', 0))
+MAX_FILE_SIZE = int(os.getenv('MAX_FILE_SIZE', 50 * 1024 * 1024))  # 50MB Telegram limit
 DOWNLOAD_PATH = "downloads"
 USER_DATA_FILE = "user_data.json"
 
